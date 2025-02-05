@@ -8,9 +8,7 @@ const UserList = ({ searchQuery }) => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((data) => setUsers(data))
-      .catch((error) =>
-        console.error("Грешка при зареждане на потребители:", error)
-      );
+      .catch((error) => console.error("Error loading users", error));
   }, []);
 
   const filteredUsers = users.filter(
@@ -20,13 +18,15 @@ const UserList = ({ searchQuery }) => {
   );
 
   return (
-    <div className="flex flex-wrap justify-center gap-4">
+    <>
       {filteredUsers.length > 0 ? (
         filteredUsers.map((user) => <UserCard key={user.id} user={user} />)
       ) : (
-        <p className="text-gray-500 text-center">Няма намерени потребители.</p>
+        <p className="text-gray-500 dark:text-gray-300 text-center col-span-full">
+          No users found.
+        </p>
       )}
-    </div>
+    </>
   );
 };
 
