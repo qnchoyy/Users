@@ -14,7 +14,7 @@ const UserModal = ({ user, closeModal }) => {
           onClick={closeModal}
           className="mt-4 w-full bg-red-500 text-white py-2 rounded hover:bg-red-600 transition"
         >
-          Затвори
+          Close
         </button>
       </div>
     </div>
